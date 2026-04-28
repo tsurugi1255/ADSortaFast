@@ -278,8 +278,9 @@ export const normalTimeStudies = [
       were${PlayerProgress.realityUnlocked() ? " (real real time)" : ""}`),
     effect: () => (Perk.studyActiveEP.isBought
       ? 50
-      : Math.clamp(250 / Player.averageRealTimePerEternity, 1, 50)),
-    formatEffect: value => (Perk.studyActiveEP.isBought ? undefined : formatX(value, 1, 1)),
+      // : Math.clamp(250 / Player.averageRealTimePerEternity, 1, 50)),
+      : 50),
+    formatEffect: value => (Perk.studyActiveEP.isBought ? undefined : undefined),
     cap: 50
   },
   {

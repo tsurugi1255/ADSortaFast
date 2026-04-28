@@ -25,6 +25,8 @@ export function infinityDimensionCommonMultiplier() {
     mult = mult.times(replicantiMult());
   }
 
+  mult = mult.times(32);
+
   return mult;
 }
 

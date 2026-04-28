@@ -128,6 +128,7 @@ export function timeDimensionCommonMultiplier() {
         4)
         .clampMin(1));
   }
+  mult = mult.times(32);
   return mult;
 }
 
