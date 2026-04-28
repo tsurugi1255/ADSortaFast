@@ -976,20 +976,20 @@ export function simulateTime(seconds, real, fast) {
     totalGameTime = getGameSpeedupFactor() * seconds;
   }
 
-  const infinitiedMilestone = getInfinitiedMilestoneReward(totalGameTime * getGameSpeedupFactor());
-  const eternitiedMilestone = getEternitiedMilestoneReward(totalGameTime * getGameSpeedupFactor());
+  //const infinitiedMilestone = getInfinitiedMilestoneReward(totalGameTime * getGameSpeedupFactor());
+  //const eternitiedMilestone = getEternitiedMilestoneReward(totalGameTime * getGameSpeedupFactor());
 
-  if (eternitiedMilestone.gt(0)) {
-    Currency.eternities.add(eternitiedMilestone);
-  } else if (infinitiedMilestone.gt(0)) {
-    Currency.infinities.add(infinitiedMilestone);
-  } else {
-    Currency.eternityPoints.add(getOfflineEPGain(seconds * getGameSpeedupFactor()));
-  }
+  //if (eternitiedMilestone.gt(0)) {
+    //Currency.eternities.add(eternitiedMilestone);
+  //} else if (infinitiedMilestone.gt(0)) {
+    //Currency.infinities.add(infinitiedMilestone);
+  //} else {
+    //Currency.eternityPoints.add(getOfflineEPGain(seconds * getGameSpeedupFactor()));
+  //}
 
-  if (InfinityUpgrade.ipOffline.isBought && player.options.offlineProgress) {
-    Currency.infinityPoints.add(player.records.thisEternity.bestIPMsWithoutMaxAll.times(seconds * getGameSpeedupFactor() / 2));
-  }
+  //if (InfinityUpgrade.ipOffline.isBought && player.options.offlineProgress) {
+    //Currency.infinityPoints.add(player.records.thisEternity.bestIPMsWithoutMaxAll.times(seconds * getGameSpeedupFactor() / 2));
+  //}
 
   EventHub.dispatch(GAME_EVENT.OFFLINE_CURRENCY_GAINED);
 
