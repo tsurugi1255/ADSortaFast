@@ -1006,7 +1006,7 @@ export function simulateTime(seconds, real, fast) {
   // by remaining ticks seems like the best thing to do.
   let loopFn = i => {
     const diff = remainingRealSeconds / i;
-    gameLoop(1000 * diff);
+    gameLoop(getGameSpeedupFactor() * diff);
     remainingRealSeconds -= diff;
   };
 
@@ -1019,7 +1019,7 @@ export function simulateTime(seconds, real, fast) {
       const [realTickTime, blackHoleSpeedup] = BlackHoles.calculateOfflineTick(remainingRealSeconds,
         i, 0.0001);
       remainingRealSeconds -= realTickTime;
-      gameLoop(1000 * realTickTime, { blackHoleSpeedup });
+      gameLoop(getGameSpeedupFactor() * realTickTime, { blackHoleSpeedup });
     };
   }
 
