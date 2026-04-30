@@ -79,6 +79,8 @@ export function breakInfinity() {
   for (const autobuyer of Autobuyers.all) {
     if (autobuyer.data.interval !== undefined) autobuyer.maxIntervalForFree();
   }
+  Achievement(35).unlock();
+  Achievement(76).unlock();
   Achievement(43).unlock();
   Achievement(108).unlock();
   Achievement(111).unlock();
@@ -605,19 +607,19 @@ export function gameLoop(passDiff, options = {}) {
     totalGameTime = getGameSpeedupFactor() * diff;
   }
 
-  const infinitiedMilestone = getInfinitiedMilestoneReward(totalGameTime * getGameSpeedupFactor());
-  const eternitiedMilestone = getEternitiedMilestoneReward(totalGameTime * getGameSpeedupFactor());
+  const infinitiedMilestone = getInfinitiedMilestoneReward(totalGameTime * 5);
+  const eternitiedMilestone = getEternitiedMilestoneReward(totalGameTime * 5);
 
   if (eternitiedMilestone.gt(0)) {
     Currency.eternities.add(eternitiedMilestone);
   } else if (infinitiedMilestone.gt(0)) {
     Currency.infinities.add(infinitiedMilestone);
   } else {
-    Currency.eternityPoints.add(getOfflineEPGain(diff * getGameSpeedupFactor()));
+    Currency.eternityPoints.add(getOfflineEPGain(diff * 5));
   }
 
   if (InfinityUpgrade.ipOffline.isBought) {
-    Currency.infinityPoints.add(player.records.thisEternity.bestIPMsWithoutMaxAll.times(diff * getGameSpeedupFactor() / 2));
+    Currency.infinityPoints.add(player.records.thisEternity.bestIPMsWithoutMaxAll.times(diff * 5 / 2));
   }
 
   updatePrestigeRates();
@@ -628,11 +630,11 @@ export function gameLoop(passDiff, options = {}) {
   replicantiLoop(diff);
 
   if (PlayerProgress.dilationUnlocked()) {
-    Currency.dilatedTime.add(getDilationGainPerSecond().times(diff / getGameSpeedupFactor()));
+    Currency.dilatedTime.add(getDilationGainPerSecond().times(diff / 1000));
   }
 
   updateTachyonGalaxies();
-  Currency.timeTheorems.add(getTTPerSecond().times(diff / getGameSpeedupFactor()));
+  Currency.timeTheorems.add(getTTPerSecond().times(diff / 1000));
   InfinityDimensions.tryAutoUnlock();
 
   BlackHoles.updatePhases(blackHoleDiff);
@@ -872,12 +874,12 @@ function applyAutoprestige(diff) {
   if (InfinityUpgrade.ipGen.isCharged) {
     const addedRM = MachineHandler.gainedRealityMachines
       .timesEffectsOf(InfinityUpgrade.ipGen.chargedEffect)
-      .times(diff / getGameSpeedupFactor());
+      .times(diff / 1000);
     Currency.realityMachines.add(addedRM);
   }
 
   if (PelleRifts.chaos.milestones[2].canBeApplied) {
-    Currency.eternityPoints.add(gainedEternityPoints().times(DC.D0_1).times(diff / getGameSpeedupFactor()));
+    Currency.eternityPoints.add(gainedEternityPoints().times(DC.D0_1).times(diff / 1000));
   }
 }
 
