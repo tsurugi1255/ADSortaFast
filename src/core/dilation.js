@@ -139,7 +139,7 @@ export function getDilationGainPerSecond() {
     Math.clampMin(Decimal.log10(Replicanti.amount) * getAdjustedGlyphEffect("replicationdtgain"), 1));
   if (Enslaved.isRunning && !dtRate.eq(0)) dtRate = Decimal.pow10(Math.pow(dtRate.plus(1).log10(), 0.85) - 1);
   if (V.isRunning) dtRate = dtRate.pow(0.5);
-  dtRate = dtRate.times(5); //mod
+  dtRate = dtRate.times(10); //mod
   return dtRate;
 }
 
