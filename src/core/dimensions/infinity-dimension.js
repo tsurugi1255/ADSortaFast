@@ -25,7 +25,7 @@ export function infinityDimensionCommonMultiplier() {
     mult = mult.times(replicantiMult());
   }
 
-  mult = mult.times(32);
+  mult = mult.times(Pelle.isDoomed ? 1 : 32);
 
   return mult;
 }

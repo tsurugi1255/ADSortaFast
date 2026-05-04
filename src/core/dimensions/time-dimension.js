@@ -128,7 +128,7 @@ export function timeDimensionCommonMultiplier() {
         4)
         .clampMin(1));
   }
-  mult = mult.times(32);
+  mult = mult.times(Pelle.isDoomed ? 1 : 32);
   return mult;
 }
 
