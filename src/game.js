@@ -610,13 +610,13 @@ export function gameLoop(passDiff, options = {}) {
   const infinitiedMilestone = getInfinitiedMilestoneReward(totalGameTime * 5);
   const eternitiedMilestone = getEternitiedMilestoneReward(totalGameTime * 5);
 
-  if (eternitiedMilestone.gt(0)) {
-    Currency.eternities.add(eternitiedMilestone);
-  } else if (infinitiedMilestone.gt(0)) {
-    Currency.infinities.add(infinitiedMilestone);
-  } else {
-    Currency.eternityPoints.add(getOfflineEPGain(diff * 5));
-  }
+  // if (eternitiedMilestone.gt(0)) {
+  //   Currency.eternities.add(eternitiedMilestone);
+  // } else if (infinitiedMilestone.gt(0)) {
+  //   Currency.infinities.add(infinitiedMilestone);
+  // } else {
+  //   Currency.eternityPoints.add(getOfflineEPGain(diff * 5));
+  // }
 
   if (InfinityUpgrade.ipOffline.isBought) {
     Currency.infinityPoints.add(player.records.thisEternity.bestIPMsWithoutMaxAll.times(diff * 5 / 2));
