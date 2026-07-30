@@ -23,7 +23,7 @@ export default {
   },
   computed: {
     formatMachinesGained() {
-      if (this.machinesGained.gt(0)) return `Machines gained: ${format(this.machinesGained, 2)}`;
+      if (this.machinesGained.gt(0)) return `Machines gained: ${format(this.machinesGained*5, 2)}`;
       return "No Machines gained";
     },
     formatMachineStats() {
@@ -32,7 +32,7 @@ export default {
       }
       if (this.machinesGained.gt(0) && this.machinesGained.lt(100)) {
         if (simulatedRealityCount(false) === 0) return `(Next at ${format(this.nextMachineEP, 2)} EP)`;
-        return `(Next ${formatInt(simulatedRealityCount(false) + 1)} at ${format(this.nextMachineEP, 2)} EP)`;
+        return `(Next ${formatInt(simulatedRealityCount(false) + 1 + 4)} at ${format(this.nextMachineEP, 2)} EP)`;
       }
       if (this.machinesGained.eq(0) && this.newIMCap === 0) {
         return `(Projected: ${format(this.projectedRM, 2)} RM)`;
