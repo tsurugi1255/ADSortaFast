@@ -923,8 +923,8 @@ export const normalAchievements = [
   {
     id: 131,
     name: "No ethical consumption",
-    get description() { return `Get ${format(DC.D2E9)} Banked Infinities.`; },
-    checkRequirement: () => Currency.infinitiesBanked.gt(DC.D2E9),
+    get description() { return `Get ${format(DC.D5E8)} Banked Infinities.`; },
+    checkRequirement: () => Currency.infinitiesBanked.gt(DC.D5E8),
     checkEvent: [GAME_EVENT.ETERNITY_RESET_AFTER, GAME_EVENT.SAVE_CONVERTED_FROM_PREVIOUS_VERSION],
     get reward() {
       return `You gain ${formatX(2)} times more Infinities and
@@ -966,8 +966,8 @@ export const normalAchievements = [
   {
     id: 134,
     name: "When will it be enough?",
-    get description() { return `Reach ${formatPostBreak(DC.E18000)} Replicanti.`; },
-    checkRequirement: () => Replicanti.amount.exponent >= 18000,
+    get description() { return `Reach ${formatPostBreak(DC.E15000)} Replicanti.`; },
+    checkRequirement: () => Replicanti.amount.exponent >= 15000,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
       return `You gain Replicanti ${formatInt(2)} times faster under ${format(replicantiCap(), 1)} Replicanti.`;
