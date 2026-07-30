@@ -610,8 +610,8 @@ export function gameLoop(passDiff, options = {}) {
   const infinitiedMilestone = getInfinitiedMilestoneReward(totalGameTime * 5);
   const eternitiedMilestone = getEternitiedMilestoneReward(totalGameTime * 5);
 
-  // if (eternitiedMilestone.gt(0)) {
-  //   Currency.eternities.add(eternitiedMilestone);
+   if (eternitiedMilestone.gt(0)) {
+     Currency.eternities.add(eternitiedMilestone);}
   // } else if (infinitiedMilestone.gt(0)) {
   //   Currency.infinities.add(infinitiedMilestone);
   // } else {
