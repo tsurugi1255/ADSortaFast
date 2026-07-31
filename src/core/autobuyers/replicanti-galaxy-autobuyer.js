@@ -14,7 +14,7 @@ export class ReplicantiGalaxyAutobuyerState extends AutobuyerState {
   }
 
   get isEnabled() {
-    return Achievement(138).isUnlocked || !TimeStudy(131).isBought;
+    return true;
   }
 
   get hasUnlimitedBulk() {
