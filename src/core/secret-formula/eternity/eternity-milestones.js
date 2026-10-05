@@ -141,12 +141,20 @@ export const eternityMilestones = {
     givenByPelle: () => PelleUpgrade.replicantiAutobuyers.isBought,
     pelleUseless: true
   },
+  doubleReplicanti: {
+    eternities: 90,
+    reward: "Get 2x replicanti gain"
+  },
   autobuyerEternity: {
     eternities: 100,
     reward: "Unlock autobuyer for Eternities"
   },
+  doubleEternity: {
+    eternities: 250,
+    reward: "Get 2x more eternities"
+  },
   autoEternities: {
-    eternities: 200,
+    eternities: 500,
     reward: () => {
       const eternities = getEternitiedMilestoneReward(TimeSpan.fromHours(1).totalMilliseconds,
         player.eternities.gte(200));
@@ -164,7 +172,7 @@ export const eternityMilestones = {
       pelleUseless: true
   },
   autoInfinities: {
-    eternities: 1000,
+    eternities: 2000,
     reward: () => {
       const infinities = getInfinitiedMilestoneReward(TimeSpan.fromHours(1).totalMilliseconds,
         player.eternities.gte(1000));
@@ -179,5 +187,5 @@ export const eternityMilestones = {
         and the Eternity Autobuyer must be turned off.`
       : ""),
       pelleUseless: true
-  }
+  },
 };
