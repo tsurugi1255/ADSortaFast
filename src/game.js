@@ -141,6 +141,7 @@ function totalEPMult() {
     ? Pelle.specialGlyphEffect.time.timesEffectOf(PelleRifts.vacuum.milestones[2])
     : getAdjustedGlyphEffect("cursedEP")
       .times(ShopPurchase.EPPurchases.currentMult)
+      .times(EternityMilestone.doubleEP.isReached ? 2 : 1)
       .timesEffectsOf(
         EternityUpgrade.epMult,
         TimeStudy(61),

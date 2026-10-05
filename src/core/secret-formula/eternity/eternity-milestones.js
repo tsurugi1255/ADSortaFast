@@ -153,8 +153,12 @@ export const eternityMilestones = {
     eternities: 250,
     reward: "Get 2x more eternities"
   },
-  autoEternities: {
+  doubleEP: {
     eternities: 500,
+    reward: "Get 2x more Eternity Points"
+  },
+  autoEternities: {
+    eternities: 750,
     reward: () => {
       const eternities = getEternitiedMilestoneReward(TimeSpan.fromHours(1).totalMilliseconds,
         player.eternities.gte(200));
@@ -172,7 +176,7 @@ export const eternityMilestones = {
       pelleUseless: true
   },
   autoInfinities: {
-    eternities: 2000,
+    eternities: 1000,
     reward: () => {
       const infinities = getInfinitiedMilestoneReward(TimeSpan.fromHours(1).totalMilliseconds,
         player.eternities.gte(1000));
