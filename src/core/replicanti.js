@@ -143,7 +143,7 @@ export function totalReplicantiSpeedMult(overCap) {
     RealityUpgrade(6),
     RealityUpgrade(23),
   );
-  totalMult = totalMult.times(preCelestialEffects);
+  totalMult = totalMult.times(preCelestialEffects).times(EternityMilestone.doubleReplicanti.isReached ? 2 : 1);
   if (TimeStudy(132).isBought) {
     totalMult = totalMult.times(Perk.studyPassive.isBought ? 3 : 1.5);
   }
