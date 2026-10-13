@@ -392,6 +392,6 @@ export default {
 }
 
 .glyph-rep-btn {
-  1/-1;
+  grid-column: 1/-1;
 }
 </style>
