@@ -245,12 +245,10 @@ export default {
               {{ unequipText }}
             </button>
             <button
-              v-if="undoVisible"
-              class="l-glyph-equip-button c-reality-upgrade-btn glyph-undo-button"
-              :class="{'c-reality-upgrade-btn--unavailable': !undoAvailable}"
-              @click="undo"
+              class="l-glyph-equip-button-short c-reality-upgrade-btn glyph-rep-btn"
+              @click="replaceProtectedGlyphs"
             >
-              <span>Undo</span>
+              Replace Protected Glyphs
             </button>
             <button
               class="l-glyph-equip-button c-reality-upgrade-btn glyph-unequip-to-button"
@@ -267,12 +265,6 @@ export default {
               @click="showOptionModal"
             >
               Open Glyph Visual Options
-            </button>
-            <button
-              class="l-glyph-equip-button-short c-reality-upgrade-btn glyph-rep-btn"
-              @click="replaceProtectedGlyphs"
-            >
-              Replace Protected Glyphs
             </button>
             <button
               class="l-glyph-equip-button-short c-reality-upgrade-btn glyph-clear-new-button"
@@ -368,7 +360,7 @@ export default {
 }
 
 .glyph-unequip-button {
-  grid-column: 1/4;
+  grid-column: 1/3;
 }
 
 .glyph-undo-button {
@@ -392,6 +384,6 @@ export default {
 }
 
 .glyph-rep-btn {
-  grid-column: 1/-1;
+  grid-column: 3/-1;
 }
 </style>
