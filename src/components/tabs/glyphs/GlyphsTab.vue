@@ -266,6 +266,11 @@ export default {
               Open Glyph Visual Options
             </button>
             <button
+              class="l-glyph-equip-button-short c-reality-upgrade-btn glyph-sac-btn"
+            >
+              Replace Protected Glyphs
+            </button>
+            <button
               class="l-glyph-equip-button-short c-reality-upgrade-btn glyph-clear-new-button"
               @click="clearVisualFlags"
             >
