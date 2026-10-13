@@ -166,6 +166,9 @@ export default {
     clearVisualFlags() {
       Glyphs.removeAllVisualFlags();
     },
+    replaceProtectedGlyphs() {
+      Glyphs.replaceProtectedWithBetterGlyphs();
+    },
     deleteAllUnprotected() {
       if (player.options.confirmations.sacrificeAll) {
         Modal.deleteAllUnprotectedGlyphs.show();
@@ -267,6 +270,7 @@ export default {
             </button>
             <button
               class="l-glyph-equip-button-short c-reality-upgrade-btn glyph-sac-btn"
+              @click="replaceProtectedGlyphs"
             >
               Replace Protected Glyphs
             </button>
