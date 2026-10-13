@@ -269,7 +269,7 @@ export default {
               Open Glyph Visual Options
             </button>
             <button
-              class="l-glyph-equip-button-short c-reality-upgrade-btn glyph-sac-btn"
+              class="l-glyph-equip-button-short c-reality-upgrade-btn glyph-rep-btn"
               @click="replaceProtectedGlyphs"
             >
               Replace Protected Glyphs
@@ -389,5 +389,9 @@ export default {
 
 .glyph-sac-btn {
   grid-column: 3/-1;
+}
+
+.glyph-rep-btn {
+  1/-1;
 }
 </style>
