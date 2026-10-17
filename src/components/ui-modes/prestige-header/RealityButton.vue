@@ -23,8 +23,7 @@ export default {
   },
   computed: {
     formatMachinesGained() {
-      const enslaved_sim_unlock = Enslaved.has(ENSLAVED_UNLOCKS.EXTRA_SIM_REALITIES) ? 5 : 1;
-      if (this.machinesGained.gt(0)) return `Machines gained: ${format(this.machinesGained.times(5).times(enslaved_sim_unlock), 2)}`;
+      if (this.machinesGained.gt(0)) return `Machines gained: ${format(this.machinesGained.times(5), 2)}`;
       return "No Machines gained";
     },
     formatMachineStats() {
