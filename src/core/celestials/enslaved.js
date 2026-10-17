@@ -4,14 +4,20 @@ import { GameDatabase } from "../secret-formula/game-database";
 import { Quotes } from "./quotes";
 
 export const ENSLAVED_UNLOCKS = {
-  FREE_TICKSPEED_SOFTCAP: {
+  EXTRA_SIM_REALITIES: {
     id: 0,
+    price: TimeSpan.fromYears(1e30).totalMilliseconds,
+    secondaryRequirement: () => true,
+    description: () => 'Get 4 free simulated realities per manual reality.'
+  },
+  FREE_TICKSPEED_SOFTCAP: {
+    id: 1,
     price: TimeSpan.fromYears(1e35).totalMilliseconds,
     secondaryRequirement: () => true,
     description: () => `Increase the softcap to Tickspeed upgrades from Time Dimensions by ${formatInt(1e5)}`,
   },
   RUN: {
-    id: 1,
+    id: 2,
     price: TimeSpan.fromYears(1e40).totalMilliseconds,
     secondaryRequirement() {
       const hasLevelRequirement = player.records.bestReality.glyphLevel >= 5000;
