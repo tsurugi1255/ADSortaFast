@@ -124,8 +124,9 @@ export function isRealityAvailable() {
 // with false for checking and true for actual usage, and only "used" once per reality.
 export function simulatedRealityCount(advancePartSimCounters) {
   const amplifiedSim = Enslaved.boostReality ? Enslaved.realityBoostRatio - 1 : 0;
+  const freeSims = Enslaved.has(ENSLAVED_UNLOCKS.EXTRA_SIM_REALITIES) ? 4 : 0;
   const multiversalSim = AlchemyResource.multiversal.effectValue;
-  const simCount = (multiversalSim + 1) * (amplifiedSim + 1) + player.partSimulatedReality - 1;
+  const simCount = (multiversalSim + 1) * (amplifiedSim + 1) + player.partSimulatedReality - 1 + freeSims;
   if (advancePartSimCounters) {
     player.partSimulatedReality = simCount - Math.floor(simCount);
   }
