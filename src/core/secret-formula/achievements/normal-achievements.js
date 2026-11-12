@@ -998,7 +998,7 @@ export const normalAchievements = [
       Time.thisEternity.totalMinutes / getGlobalSpeedFactor() <= 1 &&
       player.dilation.active,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
-    get reward() { return `Gain ${formatX(2)} Dilated Time and Time Theorems while Dilated.`; },
+    get reward() { return `Gain ${formatX(2)} Dilated Time and Time Theorems.`; },
     effect: 2,
   },
   {
