@@ -999,7 +999,7 @@ export const normalAchievements = [
       player.dilation.active,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() { return `Gain ${formatX(2)} Dilated Time and Time Theorems while Dilated.`; },
-    effect: () => (player.dilation.active ? 2 : 1),
+    effect: 2,
   },
   {
     id: 138,
