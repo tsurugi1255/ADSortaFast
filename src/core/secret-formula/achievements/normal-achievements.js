@@ -115,7 +115,7 @@ export const normalAchievements = [
     get description() {
       return `Have more than ${format(DC.E150)} 1st Antimatter Dimensions.`;
     },
-    checkRequirement: () => AntimatterDimension(1).multiplier.exponent >= 150,
+    checkRequirement: () => AntimatterDimension(1).amount.gt(150),
     get reward() { return `1st Antimatter Dimensions are ${formatPercents(0.1)} stronger.`; },
     effect: 1.1
   },
