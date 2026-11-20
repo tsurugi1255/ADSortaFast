@@ -395,8 +395,8 @@ export const normalAchievements = [
   {
     id: 64,
     name: "Zero Deaths",
-    description: "Get to Infinity without Dimension Boosts or Antimatter Galaxies while in a Normal Challenge.",
-    checkRequirement: () => player.galaxies === 0 && DimBoost.purchasedBoosts === 0 && NormalChallenge.isRunning,
+    description: "Get to Infinity with Dimension Boosts or Antimatter Galaxies while in a Normal Challenge.",
+    checkRequirement: () => player.galaxies >= 0 && DimBoost.purchasedBoosts >= 0 && NormalChallenge.isRunning,
     checkEvent: GAME_EVENT.BIG_CRUNCH_BEFORE,
     get reward() { return `Antimatter Dimensions 1-4 are ${formatPercents(0.25)} stronger.`; },
     effect: 1.25
@@ -446,13 +446,13 @@ export const normalAchievements = [
     id: 71,
     name: "ERROR 909: Dimension not found",
     description:
-      `Get to Infinity with only 10 1st Antimatter Dimension without Dimension Boosts
+      `Get to Infinity with at least 10 1st Antimatter Dimension with Dimension Boosts
       or Antimatter Galaxies, while in the 2nd Antimatter Dimension Autobuyer Challenge.`,
     checkRequirement: () =>
       NormalChallenge(2).isOnlyActiveChallenge &&
-      AntimatterDimension(1).amount.eq(10) &&
-      DimBoost.purchasedBoosts === 0 &&
-      player.galaxies === 0,
+      AntimatterDimension(1).amount.gte(10) &&
+      DimBoost.purchasedBoosts >= 0 &&
+      player.galaxies >= 0,
     checkEvent: GAME_EVENT.BIG_CRUNCH_BEFORE,
     get reward() { return `1st Antimatter Dimensions are ${formatInt(3)} times stronger.`; },
     effect: 3
@@ -596,7 +596,7 @@ export const normalAchievements = [
     get description() {
       return `Get a ${formatX(Decimal.NUMBER_MAX_VALUE, 1, 0)} multiplier in a single Dimensional Sacrifice.`;
     },
-    checkRequirement: () => Sacrifice.nextBoost.gte(Decimal.NUMBER_MAX_VALUE),
+    checkRequirement: () => Sacrifice.totalBoost.gte(Decimal.NUMBER_MAX_VALUE),
     checkEvent: GAME_EVENT.SACRIFICE_RESET_BEFORE,
     get reward() {
       return `Dimensional Sacrifice is stronger.
@@ -747,8 +747,8 @@ export const normalAchievements = [
   {
     id: 108,
     name: "We COULD afford 9",
-    get description() { return `Eternity with exactly ${formatInt(9)} Replicanti. Tip: Find a way to slow that down.`; },
-    checkRequirement: () => Replicanti.amount.round().eq(9),
+    get description() { return `Eternity with more than ${formatInt(9)} Replicanti.`; },
+    checkRequirement: () => Replicanti.amount.round().gt(9),
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE
   },
   {
