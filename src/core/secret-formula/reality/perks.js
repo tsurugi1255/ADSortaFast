@@ -297,7 +297,7 @@ export const perks = {
     id: 70,
     label: "ACT",
     family: PERK_FAMILY.ETERNITY,
-    description: "Active path multipliers are always maximized.",
+    description: "Active path multipliers are increased",
     layoutPosList: [56633, 79399, 80599, 80601, 78194, 58565],
   },
   studyIdleEP: {

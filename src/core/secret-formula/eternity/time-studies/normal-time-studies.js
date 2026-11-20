@@ -273,16 +273,16 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [122, 123],
     description: () => (Perk.studyActiveEP.isBought
-      ? `You gain ${formatX(50)} more Eternity Points`
+      ? `You gain ${formatX(100)} more Eternity Points`
       // : `You gain more EP based on how fast your last ten Eternities
       // were${PlayerProgress.realityUnlocked() ? " (real real time)" : ""}`),
       : `You gain ${formatX(50)} more Eternity Points`),
     effect: () => (Perk.studyActiveEP.isBought
-      ? 50
+      ? 100
       // : Math.clamp(250 / Player.averageRealTimePerEternity, 1, 50)),
       : 50),
     formatEffect: value => (Perk.studyActiveEP.isBought ? undefined : undefined),
-    cap: 50
+    cap: 100
   },
   {
     id: 122,
@@ -357,11 +357,11 @@ export const normalTimeStudies = [
     reqType: TS_REQUIREMENT_TYPE.AT_LEAST_ONE,
     requiresST: [142, 143],
     description: () => (Perk.studyActiveEP.isBought
-      ? `You gain ${formatX(DC.E45)} more Infinity Points`
+      ? `You gain ${formatX(DC.E100)} more Infinity Points`
       : `You gain ${formatX(DC.E45)} more Infinity Points`),
       // : "Multiplier to Infinity Points, which decays over this Infinity"),
     effect: () => (Perk.studyActiveEP.isBought
-      ? DC.E45
+      ? DC.E100
     //   : DC.E45.divide(thisInfinityMult(Time.thisInfinity.totalSeconds / getGlobalSpeedFactor())).clampMin(1)),
     // formatEffect: value => (Perk.studyActiveEP.isBought ? undefined : formatX(value, 2, 1))
     : DC.E45),
