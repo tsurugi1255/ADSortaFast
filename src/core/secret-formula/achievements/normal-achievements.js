@@ -76,8 +76,8 @@ export const normalAchievements = [
   {
     id: 23,
     name: "The 9th Dimension is a lie",
-    get description() { return `Have exactly ${formatInt(99)} 8th Antimatter Dimensions.`; },
-    checkRequirement: () => AntimatterDimension(8).amount.eq(99),
+    get description() { return `Have more than ${formatInt(99)} 8th Antimatter Dimensions.`; },
+    checkRequirement: () => AntimatterDimension(8).amount.gt(99),
     get reward() { return `8th Antimatter Dimensions are ${formatPercents(0.1)} stronger.`; },
     effect: 1.1
   },
@@ -113,10 +113,9 @@ export const normalAchievements = [
     id: 28,
     name: "There's no point in doing that...",
     get description() {
-      return `Buy a single 1st Antimatter Dimension when you have over ${format(DC.E150)} of them.`;
+      return `Have more than ${format(DC.E150)} 1st Antimatter Dimensions.`;
     },
     checkRequirement: () => AntimatterDimension(1).amount.exponent >= 150,
-    checkEvent: GAME_EVENT.ACHIEVEMENT_EVENT_OTHER,
     get reward() { return `1st Antimatter Dimensions are ${formatPercents(0.1)} stronger.`; },
     effect: 1.1
   },
@@ -152,8 +151,8 @@ export const normalAchievements = [
   {
     id: 34,
     name: "You didn't need it anyway",
-    description: "Infinity without having any 8th Antimatter Dimensions.",
-    checkRequirement: () => AntimatterDimension(8).totalAmount.eq(0),
+    description: "Infinity with at least 170 8th Antimatter Dimensions.",
+    checkRequirement: () => AntimatterDimension(8).totalAmount.gt(170),
     checkEvent: GAME_EVENT.BIG_CRUNCH_BEFORE,
     get reward() { return `Dimensions 1-7 are ${formatPercents(0.02)} stronger.`; },
     effect: 1.02
@@ -224,12 +223,12 @@ export const normalAchievements = [
     id: 43,
     name: "How the antitables have turned..",
     description:
-      "Get the 8th Antimatter Dimension multiplier to be highest, 7th Antimatter Dimension multiplier " +
+      "Get the 1st Antimatter Dimension multiplier to be highest, 2nd Antimatter Dimension multiplier " +
       " second highest, etc.",
     checkRequirement: () => {
       const multipliers = Array.range(1, 8).map(tier => AntimatterDimension(tier).multiplier);
       for (let i = 0; i < multipliers.length - 1; i++) {
-        if (multipliers[i].gte(multipliers[i + 1])) return false;
+        if (multipliers[i].lte(multipliers[i + 1])) return false;
       }
       return true;
     },
