@@ -12,6 +12,7 @@ import { supportedBrowsers } from "./supported-browsers";
 import Payments from "./core/payments";
 import { Achievement, maxAll } from "./core/globals";
 import { AdBonus } from "./core/adBonus";
+import { EternityMilestone } from "./core/eternity";
 
 if (GlobalErrorHandler.handled) {
   throw new Error("Initialization failed");
