@@ -151,7 +151,7 @@ export const eternityMilestones = {
   },
   doubleEternity: {
     eternities: 250,
-    reward: "Get 2x more eternities"
+    reward: "Get 2x more infinities and eternities"
   },
   doubleEP: {
     eternities: 500,
