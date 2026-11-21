@@ -1,4 +1,5 @@
 import { DC } from "./constants";
+import { AdBonus } from "./adBonus";
 
 export const MachineHandler = {
   get baseRMCap() { return DC.E1000; },
@@ -13,7 +14,7 @@ export const MachineHandler = {
 
   get realityMachineMultiplier() {
     return ShopPurchase.RMPurchases.currentMult * Teresa.rmMultiplier * Effects.max(1, PerkShopUpgrade.rmMult) *
-      getAdjustedGlyphEffect("effarigrm") * Achievement(167).effectOrDefault(1);
+      getAdjustedGlyphEffect("effarigrm") * Achievement(167).effectOrDefault(1) * AdBonus.boostToRM.effectiveBoost().toNumber();
   },
 
   get uncappedRM() {

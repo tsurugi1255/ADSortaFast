@@ -47,6 +47,7 @@ export function antimatterDimensionCommonMultiplier() {
   multiplier = multiplier.times(getAdjustedGlyphEffect("powermult"));
   multiplier = multiplier.times(Currency.realityMachines.value.powEffectOf(AlchemyResource.force));
   multiplier = multiplier.times(Pelle.isDoomed ? 1 : 32);
+  multiplier = multiplier.times(AdBonus.boostToADs.effectiveBoost());
 
   if (Pelle.isDoomed) multiplier = multiplier.dividedBy(10);
 

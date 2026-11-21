@@ -11,6 +11,7 @@ import { supportedBrowsers } from "./supported-browsers";
 
 import Payments from "./core/payments";
 import { Achievement, maxAll } from "./core/globals";
+import { AdBonus } from "./core/adBonus";
 
 if (GlobalErrorHandler.handled) {
   throw new Error("Initialization failed");
@@ -116,7 +117,7 @@ export function gainedInfinityPoints() {
       .floor();
   }
   let ip = player.break
-    ? Decimal.pow10(player.records.thisInfinity.maxAM.log10() / div - 0.75).times(2)
+    ? Decimal.pow10(player.records.thisInfinity.maxAM.log10() / div - 0.75)
     : new Decimal(308 / div);
   if (Effarig.isRunning && Effarig.currentStage === EFFARIG_STAGES.ETERNITY) {
     ip = ip.min(DC.E200);
@@ -141,7 +142,7 @@ function totalEPMult() {
     ? Pelle.specialGlyphEffect.time.timesEffectOf(PelleRifts.vacuum.milestones[2])
     : getAdjustedGlyphEffect("cursedEP")
       .times(ShopPurchase.EPPurchases.currentMult)
-      .times(EternityMilestone.doubleEP.isReached ? 2 : 1)
+      .times(EternityMilestone.doubleEP.isReached ? 2 : 1).times(AdBonus.boostToEP.effectiveBoost())
       .timesEffectsOf(
         EternityUpgrade.epMult,
         TimeStudy(61),

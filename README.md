@@ -7,6 +7,7 @@ Credits go to the following:
 - [Ivark](https://github.com/IvarK/AntimatterDimensionsSourceCode): for the AD source code
 - [Wyxkk](https://github.com/WYXkk/ADfaster): for the AD Fast Dimensions mods
 - [realjman](https://github.com/realjman/ADfasterer): for the code to convert offline IP gen to online
+- [sirusi](https://github.com/sirusi/ADWebAdBonus): for the ad bonus implementation
 
 ## Run
 
