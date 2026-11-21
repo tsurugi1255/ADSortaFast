@@ -848,8 +848,8 @@ export const normalAchievements = [
   {
     id: 122,
     name: "You're already dead.",
-    get description() { return `Have ${format(DC.E6)} eternities.`; },
-    checkRequirement: () => player.eternities.gte(DC.E6),
+    get description() { return `Have ${format(DC.E5)} eternities.`; },
+    checkRequirement: () => player.eternities.gte(DC.E5),
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE
   },
   {
