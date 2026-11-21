@@ -1,6 +1,6 @@
 <script>
 export default {
-  name: "adBonusDisplay",
+  name: "AdBonusDisplay",
   props: {
   },
   data() {
