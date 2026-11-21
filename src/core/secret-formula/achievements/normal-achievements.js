@@ -848,8 +848,8 @@ export const normalAchievements = [
   {
     id: 122,
     name: "You're already dead.",
-    description: "Eternity without buying Antimatter Dimensions 2-8.",
-    checkRequirement: () => player.requirementChecks.eternity.onlyAD1,
+    description: "Have ${format(DC.E6)} eternities.",
+    checkRequirement: () => player.eternities.gte(DC.E6),
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE
   },
   {
@@ -907,8 +907,8 @@ export const normalAchievements = [
   {
     id: 128,
     name: "What do I have to do to get rid of you",
-    get description() { return `Reach ${formatPostBreak("1e22000")} Infinity Points without any Time Studies.`; },
-    checkRequirement: () => Currency.infinityPoints.exponent >= 22000 && player.timestudy.studies.length === 0,
+    get description() { return `Reach ${formatPostBreak("1e44000")} Infinity Points.`; },
+    checkRequirement: () => Currency.infinityPoints.exponent >= 44000,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "Time Dimensions are multiplied by the number of Time Studies you have.",
     effect: () => Math.max(player.timestudy.studies.length, 1),
@@ -934,10 +934,9 @@ export const normalAchievements = [
     id: 132,
     name: "Unique snowflakes",
     get description() {
-      return `Have ${formatInt(569)} Antimatter Galaxies without gaining any
-        Replicanti Galaxies in your current Eternity.`;
+      return `Have ${formatInt(569)} Antimatter Galaxies in your current Eternity.`;
     },
-    checkRequirement: () => player.galaxies >= 569 && player.requirementChecks.eternity.noRG,
+    checkRequirement: () => player.galaxies >= 569,
     checkEvent: GAME_EVENT.GALAXY_RESET_AFTER,
     reward: "Gain a multiplier to Tachyon Particle and Dilated Time gain based on Antimatter Galaxies.",
     effect: () => 1.22 * Math.max(Math.pow(player.galaxies, 0.04), 1),
@@ -947,13 +946,9 @@ export const normalAchievements = [
     id: 133,
     name: "I never liked this infinity stuff anyway",
     get description() {
-      return `Reach ${formatPostBreak(DC.E200000)} Infinity Points without
-      buying any Infinity Dimensions or the ${formatX(2)} Infinity Point multiplier.`;
+      return `Reach ${formatPostBreak(DC.E200000)} Infinity Points.`;
     },
-    checkRequirement: () =>
-      Array.dimensionTiers.map(InfinityDimension).every(dim => dim.baseAmount === 0) &&
-      player.IPMultPurchases === 0 &&
-      Currency.infinityPoints.exponent >= 200000,
+    checkRequirement: () => Currency.infinityPoints.exponent >= 200000,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     reward: "You start Eternities with all Infinity Challenges unlocked and completed."
   },
@@ -999,10 +994,9 @@ export const normalAchievements = [
     id: 138,
     name: "This is what I have to do to get rid of you.",
     get description() {
-      return `Reach ${formatPostBreak("1e26000")} Infinity Points without any Time Studies while Dilated.`;
+      return `Reach ${formatPostBreak("1e26000")} Infinity Points while Dilated.`;
     },
     checkRequirement: () =>
-      player.timestudy.studies.length === 0 &&
       player.dilation.active &&
       Currency.infinityPoints.exponent >= 26000,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
