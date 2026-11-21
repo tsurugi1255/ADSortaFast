@@ -595,7 +595,7 @@ export const normalAchievements = [
     id: 88,
     name: "Yet another infinity reference",
     get description() {
-      return `Get a ${formatX(Decimal.NUMBER_MAX_VALUE, 1, 0)} multiplier in a single Dimensional Sacrifice.`;
+      return `Have ${formatX(Decimal.NUMBER_MAX_VALUE, 1, 0)} total sacrifice multiplier.`;
     },
     checkRequirement: () => Sacrifice.totalBoost.gte(Decimal.NUMBER_MAX_VALUE),
     checkEvent: GAME_EVENT.SACRIFICE_RESET_BEFORE,
@@ -689,9 +689,9 @@ export const normalAchievements = [
   },
   {
     id: 101,
-    name: "8 nobody got time for that",
-    description: "Eternity without buying Antimatter Dimensions 1-7.",
-    checkRequirement: () => player.requirementChecks.eternity.onlyAD8,
+    name: "Ain't nobody got time for that",
+    description: "Eternity with Antimatter Dimensions 1-7.",
+    checkRequirement: () => player.eternities.gte(0),
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE
   },
   {
@@ -741,8 +741,8 @@ export const normalAchievements = [
   {
     id: 107,
     name: "Do you really need a guide for this?",
-    get description() { return `Eternity with less than ${formatInt(10)} Infinities.`; },
-    checkRequirement: () => Currency.infinities.lt(10),
+    get description() { return `Eternity with at least ${formatInt(10)} Infinities.`; },
+    checkRequirement: () => Currency.infinities.gte(10),
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE
   },
   {
@@ -757,13 +757,13 @@ export const normalAchievements = [
     name: "Yo dawg, I heard you liked infinities...",
     get description() {
       return `Have all your Infinities in your past ${formatInt(10)} Infinities be at least
-      ${format(Decimal.NUMBER_MAX_VALUE, 1, 0)} times higher Infinity Points than the previous one.`;
+      ${format(DC.E25)} times higher Infinity Points than the previous one.`;
     },
     checkRequirement: () => {
       if (player.records.recentInfinities.some(i => i[0] === Number.MAX_VALUE)) return false;
       const infinities = player.records.recentInfinities.map(run => run[2]);
       for (let i = 0; i < infinities.length - 1; i++) {
-        if (infinities[i].lt(infinities[i + 1].times(Decimal.NUMBER_MAX_VALUE))) return false;
+        if (infinities[i].lt(infinities[i + 1].times(DC.E25))) return false;
       }
       return true;
     },
@@ -804,8 +804,8 @@ export const normalAchievements = [
   {
     id: 116,
     name: "Do I really need to infinity",
-    get description() { return `Eternity with only ${formatInt(1)} Infinity.`; },
-    checkRequirement: () => Currency.infinities.lte(1),
+    get description() { return `Eternity with at least ${formatInt(1)} Infinity.`; },
+    checkRequirement: () => Currency.infinities.gte(1),
     checkEvent: GAME_EVENT.ETERNITY_RESET_BEFORE,
     reward: "Multiplier to Infinity Points based on Infinities.",
     effect: () => Decimal.pow(Currency.infinitiesTotal.value.clampMin(1), LOG10_2 / 4).powEffectOf(TimeStudy(31)),
@@ -863,15 +863,9 @@ export const normalAchievements = [
     id: 124,
     name: "Long lasting relationship",
     get description() {
-      return `Have your Infinity Power per second exceed your Infinity Power
-      for ${formatInt(60)} consecutive seconds during a single Infinity.`;
+      return `Have your Infinity Power per second exceed your Infinity Power.`;
     },
-    checkRequirement: () => AchievementTimers.marathon2
-      .check(
-        !EternityChallenge(7).isRunning &&
-        InfinityDimension(1).productionPerSecond.gt(Currency.infinityPower.value),
-        60
-      ),
+    checkRequirement: () => InfinityDimension(1).productionPerSecond.gt(Currency.infinityPower.value),
     checkEvent: GAME_EVENT.GAME_TICK_AFTER
   },
   {
@@ -895,8 +889,8 @@ export const normalAchievements = [
   {
     id: 126,
     name: "Popular music",
-    get description() { return `Have ${formatInt(180)} times more Replicanti Galaxies than Antimatter Galaxies.`; },
-    checkRequirement: () => Replicanti.galaxies.total >= 180 * player.galaxies && player.galaxies > 0,
+    get description() { return `Have ${formatInt(180)} Replicanti Galaxies.`; },
+    checkRequirement: () => Replicanti.galaxies.total >= 180,
     checkEvent: GAME_EVENT.GAME_TICK_AFTER,
     get reward() {
       return `Replicanti Galaxies divide your Replicanti by ${format(Decimal.NUMBER_MAX_VALUE, 1, 0)}
