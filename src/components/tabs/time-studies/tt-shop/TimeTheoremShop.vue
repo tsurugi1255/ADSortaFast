@@ -187,10 +187,7 @@ export default {
               Check this box to swap this behavior."
           >
           </span>
-          <span v-if="showTTGen">
-            You are gaining {{ TTgenRateText }}.
-          </span>
-          <span v-else>
+          <span>
             You have {{ totalTimeTheoremText }}.
           </span>
         </div>
