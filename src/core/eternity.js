@@ -236,7 +236,7 @@ export function gainedEternities() {
   return Pelle.isDisabled("eternityMults")
     ? new Decimal(1)
     : new Decimal(getAdjustedGlyphEffect("timeetermult"))
-      .timesEffectsOf(RealityUpgrade(3), Achievement(113))
+      .timesEffectsOf(RealityUpgrade(3), Achievement(113), Achievement(122))
       .pow(AlchemyResource.eternity.effectValue)
       .times(EternityMilestone.doubleEternity.isReached ? 2 : 1);
 }
