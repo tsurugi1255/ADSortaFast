@@ -97,7 +97,7 @@ export const AdBonus = {
 
     boostToMemories: new AdBonusState(
         () => Ra.isUnlocked,
-        () => DC.D1_5,
+        () => DC.D2,
         adBonus => `Memory gain is multiplied by ${adBonus}`
     ),
 
