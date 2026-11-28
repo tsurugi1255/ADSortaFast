@@ -55,10 +55,10 @@ export const eternityUpgrades = {
     id: 6,
     cost: 1e50,
     description: () => (Pelle.isDoomed
-      ? "Time Dimensions are multiplied by days played in this Armageddon"
-      : "Time Dimensions are multiplied by days played"
+      ? "Time Dimensions are multiplied by hours played in this Armageddon"
+      : "Time Dimensions are multiplied by hours played"
     ),
-    effect: () => (Pelle.isDoomed ? 1 + Time.thisReality.totalDays : Math.max(Time.totalTimePlayed.totalDays, 1)),
+    effect: () => (Pelle.isDoomed ? 1 + Time.thisReality.totalHours : Math.max(Time.totalTimePlayed.totalHours, 1)),
     formatEffect: value => formatX(value, 2, 1)
   }
 };
